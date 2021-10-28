@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.main{
+    height: 100vh;
+}
+
+.header{
+    background-color: #34A5DA;
+    padding: 30px;
+}
+
+h1{
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+section{
+    background-color: #222222;
+    text-align: center;
+    padding: 20em;
+    color: white;
+}
+
+span{
+    background-color: #EBEBEB;
+}
