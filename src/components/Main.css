@@ -15,15 +15,52 @@
 h1{
     font-weight: bold;
     font-size: 1.4em;
+    text-underline-offset: 5px;
 }
 
-section{
+.background{
     background-color: #222222;
-    text-align: center;
-    padding: 20em;
-    color: white;
+    height: 100vh;
+    padding-left: 30em;
+    padding: 10em 20em;
+    /* color: white; */
 }
 
 span{
     background-color: #EBEBEB;
+}
+
+.func-btn{
+    background-color: #34A5DA;
+    border-radius: 15px;
+}
+
+.btn-sec{
+    display: flex;
+    justify-content: center;
+    margin: .5em;
+}
+
+button{
+    color: #EBEBEB;
+    width: 80px;
+    font-weight: bold;
+    margin-right: .5em;
+    cursor: pointer;
+    border: 0px solid transparent;
+}
+
+.prev-btn{
+    background-color: transparent;
+    text-decoration: none;
+    margin-right: 8em;
+    outline: none;
+    border: 0px solid transparent;
+}
+
+.next-btn{
+    background-color: transparent;
+    text-decoration: none;
+    margin-left: 8em;
+    border: 0px solid transparent;
 }

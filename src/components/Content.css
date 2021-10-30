@@ -1,3 +1,18 @@
-h1{
-    color: blue;
+.index-counter{
+    display: flex;
+    justify-content: end;
+}
+
+.name{
+    text-decoration: underline #34A5DA;
+    margin-bottom: 1.5em;
+}
+
+.card{
+    background-color: #EBEBEB;
+    padding: 0 10px 40px 40px;
+}
+
+.about{
+    margin-bottom: 2em;
 }

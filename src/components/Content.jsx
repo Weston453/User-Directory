@@ -1,26 +1,26 @@
 import React from 'react'
-import data from '../data'
 import './Content.css'
 
 
-const Content = (props) => {
+const Content = ({ cards, setCards, index }) => {
+    let card = cards[index]
     return (
         <div>
-            <h2>{data[props.id].id}/25</h2>
-            <h1>
-                {data[props.id].name.first} {data[props.id].name.last}
-            </h1>
-            <p>
-                From: {data[props.id].city}
-                Job Title: {data[props.id].country}
-                Employer: {data[props.id].title}
-            </p>
-            <h2>Favorite Movies:</h2>
-            <ol>
-                <li>{data[props.id].favoriteMovies[0]}</li>
-                <li>{data[props.id].favoriteMovies[1]}</li>
-                <li>{data[props.id].favoriteMovies[2]}</li>
-            </ol>
+            <div className="card">
+                <h1 className="index-counter">{card.id}/{cards.length}</h1>
+                <h1 className="name">{card.name.first} {card.name.last} </h1>
+                <section className="about">
+                    <p><strong>From: </strong>{card.city}, {card.country}</p>
+                    <p><strong>Job Title: </strong>{card.title}</p>
+                    <p><strong>Employer: </strong>{card.employer}</p>
+                </section>
+                <h2>Favorite Movies:</h2>
+                <ol>
+                    <li>{card.favoriteMovies[0]}</li>
+                    <li>{card.favoriteMovies[1]}</li>
+                    <li>{card.favoriteMovies[2]}</li>
+                </ol> 
+            </div>
         </div>
     )
 }
