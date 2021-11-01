@@ -7,7 +7,7 @@ const Content = ({ cards, setCards, index }) => {
     return (
         <div>
             <div className="card">
-                <h1 className="index-counter">{card.id}/{cards.length}</h1>
+                <h1 className="index-counter">{index + 1}/{cards.length}</h1>
                 <h1 className="name">{card.name.first} {card.name.last} </h1>
                 <section className="about">
                     <p><strong>From: </strong>{card.city}, {card.country}</p>

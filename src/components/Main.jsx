@@ -32,17 +32,10 @@ const Main = () => {
 
     //-----Delete Card------------------------------------------------
     const removeCard = (index) => {
-        let setCards = [...cards.splice(index, 1)]
-        console.log(setCards)
+        let cardsCopy = [...cards]
+        cardsCopy.splice(index, 1)
+        setCards(cardsCopy)
     }
-
-    // const removeCard = cards.forEach((card) => {
-    //     console.log(card.id)
-    // })
-
-    // const removeCard = (index) => {
-    //     setCards(...cards.splice(index, 1))
-    // }
 
     //-----Show Add-Card Form------------------------------------------
     function addForm(e) {
