@@ -1,137 +1,122 @@
-import React, {useState} from 'react'
-
-const EditForm = ({ cards, setCards, index, setIndex }) => {
-    const [firstName, setFirstName] = useState('')
-    const [lastName, setLastName] = useState('')
-    const [city, setCity] = useState('')
-    const [country, setCountry] = useState('')
-    const [employer, setEmployer] = useState('')
-    const [title, setTitle] = useState('')
-
-    const [movie1, setMovie1] = useState('')
-    const [movie2, setMovie2] = useState('')
-    const [movie3, setMovie3] = useState('')
+const EditForm = ({ cards, setCards, index, setIndex, setShowEditForm }) => {
+    let card = cards[index]
 
     //--------First/Last Name Input------------------------------
     const handleFirstName = (e) => {
-        setFirstName(e.target.value)
+        e.preventDefault()
+        card.name.first = e.target.value
     }
 
     const handleLastName = (e) => {
-        setLastName(e.target.value)
+        e.preventDefault()
+        card.name.last = e.target.value
     }
 
     //City, Country, Employer, Title Input-----------------------
     const handleCity = (e) => {
-        setCity(e.target.value)
+        e.preventDefault()
+        card.city = e.target.value
     }
 
     const handleCountry = (e) => {
-        setCountry(e.target.value)
+        e.preventDefault()
+        card.country = e.target.value
     }
 
     const handleEmployer= (e) => {
-        setEmployer(e.target.value)
+        e.preventDefault()
+        card.employer = e.target.value
     }
 
     const handleTitle = (e) => {
-        setTitle(e.target.value)
+        e.preventDefault()
+        card.title = e.target.value
     }
 
     //Favorite Movie Input-------------------------------------
     const handleMovie1= (e) => {
-        setMovie1(e.target.value)
+        e.preventDefault()
+        card.favoriteMovies[0] = e.target.value
     }
 
     const handleMovie2 = (e) => {
-        setMovie2(e.target.value)
+        e.preventDefault()
+        card.favoriteMovies[1] = e.target.value
     }
 
     const handleMovie3 = (e) => {
-        setMovie3(e.target.value)
+        e.preventDefault()
+        card.favoriteMovies[2] = e.target.value
     }
 
-
-    //--------Form Submit Handler-----------------------------
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        setCards([ ...cards.splice(index, 0, 
-            {
-            id: 26,
-            name: {first: firstName, last: lastName},
-            city: city,
-            country: country,
-            employer: employer,
-            title: title,
-            favoriteMovies: [
-                movie1, 
-                movie2, 
-                movie3
-            ]
-            }
-        )])
+    //-------Hide Edit Form-------------------------------------
+    const hideForm = (e) => {
+        setShowEditForm(false)
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form>
             <div>
             <h1>Edit Person</h1>
                 <label>First Name: </label>
                 <input 
                     type='text' 
-                    value={firstName} 
+                    placeholder={card.name.first}
+         
                     onChange={handleFirstName}
                 /><br/>
                 <label>Last Name: </label>
                 <input 
                     type='text' 
-                    value={lastName} 
+                    placeholder={card.name.last}
+     
                     onChange={handleLastName}
                 /><br/>
                 <label>City: </label>
                 <input 
                     type='text' 
-                    value={city} 
+                    placeholder={card.city} 
                     onChange={handleCity}
                 /><br/>
                 <label>Country: </label>
                 <input 
                     type='text' 
-                    value={country} 
+                    placeholder={card.country}
                     onChange={handleCountry}
+                /><br/>
+                <label>Job Title: </label>
+                <input 
+                    type='text' 
+                    placeholder={card.title} 
+                    onChange={handleTitle}
                 /><br/>
                 <label>Employer: </label>
                 <input 
                     type='text' 
-                    value={employer} 
+                    placeholder={card.employer}
                     onChange={handleEmployer}
-                /><br/>
-                <label>Title: </label>
-                <input 
-                    type='text' 
-                    value={title} 
-                    onChange={handleTitle}
                 /><br/>
                 <label>Favorite Movie1: </label>
                 <input 
                     type='text' 
-                    value={movie1} 
+                    placeholder={card.favoriteMovies[0]} 
                     onChange={handleMovie1}
                 /><br/>
                 <label>Favorite Movie2: </label>
                 <input 
                     type='text' 
-                    value={movie2} 
+                    placeholder={card.favoriteMovies[1]} 
                     onChange={handleMovie2}
                 /><br/>
                 <label>Favorite Movie3: </label>
                 <input 
                     type='text' 
-                    value={movie3} 
+                    placeholder={card.favoriteMovies[2]} 
                     onChange={handleMovie3}
                 />
-            </div>
-            <button type="submit">Submit</button>
+            </div><br/>
+            <button type="submit" onClick={hideForm}>Submit</button>
+            <button type="submit" onClick={hideForm}>Hide</button>
         </form>
     )
 }

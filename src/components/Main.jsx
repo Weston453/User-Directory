@@ -31,6 +31,17 @@ const Main = () => {
     }
 
     //-----Delete Card------------------------------------------------
+    // const removeCard = (index) => {
+    //     let cardsCopy = [...cards]
+    //     // let indexCopy = index - 1
+    //     cardsCopy.splice(index, 1)
+    //     setCards(cardsCopy)
+    //     if(index < 0) {
+    //         index = 0
+    //     }
+    //     setIndex(index)
+    // }
+
     const removeCard = (index) => {
         let cardsCopy = [...cards]
         cardsCopy.splice(index, 1)
@@ -62,10 +73,10 @@ const Main = () => {
                 <button className="func-btn" onClick={addEdit}> Edit </button>      
                 <button className="func-btn" onClick={removeCard}> Delete </button>      
                 <button className="func-btn" onClick={addForm}> Add </button>     
-                <button className="next-btn" onClick={inc}> Next &gt;</button><br/><br/>
+                <button className="next-btn" onClick={inc}> Next &gt; </button><br/><br/>
                 </section>
-                {showForm && <Form cards={cards} setCards={setCards} />}
-                {showEditForm && <EditForm cards={cards} setCards={setCards} index={index} setIndex={setIndex}/>}
+                {showForm && <Form cards={cards} setCards={setCards} setShowForm={setShowForm}/>}
+                {showEditForm && <EditForm cards={cards} setCards={setCards} index={index} setIndex={setIndex} setShowEditForm={setShowEditForm}/>}
             </section>
         </div>
     )

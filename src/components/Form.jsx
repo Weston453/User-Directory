@@ -56,10 +56,16 @@ const Form = ({ cards, setCards, showForm, setShowForm }) => {
         setMovie3(e.target.value)
     }
 
+    //-----Hide Add Form-------------------------------------
+    const hideForm = (e) => {
+        setShowForm(false)
+    }
+
 
     //--------Form Submit Handler-----------------------------
     const handleSubmit = (e) => {
         e.preventDefault()
+        hideForm()
         setCards([...cards, 
             {
             id: 26,
@@ -135,8 +141,9 @@ const Form = ({ cards, setCards, showForm, setShowForm }) => {
                     value={movie3} 
                     onChange={handleMovie3}
                 />
-            </div>
-            <button type="submit">Submit</button>
+            </div><br/>
+            <button type="submit" onClick={ handleSubmit }>Submit</button>
+            <button type="submit" onClick={ hideForm }>Hide</button>
         </form>
     )
 }
