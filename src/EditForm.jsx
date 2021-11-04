@@ -62,14 +62,12 @@ const EditForm = ({ cards, setCards, index, setIndex, setShowEditForm }) => {
                 <input 
                     type='text' 
                     placeholder={card.name.first}
-         
                     onChange={handleFirstName}
                 /><br/>
                 <label>Last Name: </label>
                 <input 
                     type='text' 
                     placeholder={card.name.last}
-     
                     onChange={handleLastName}
                 /><br/>
                 <label>City: </label>

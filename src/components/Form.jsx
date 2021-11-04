@@ -1,21 +1,19 @@
-// import React, { Component } from 'react'
 import React, { useState } from 'react'
-// import data from '../data'
-// import './Main.css'
 import './Form.css'
 
-const Form = ({ cards, setCards, showForm, setShowForm }) => {
 
-    const [firstName, setFirstName] = useState('')
-    const [lastName, setLastName] = useState('')
-    const [city, setCity] = useState('')
-    const [country, setCountry] = useState('')
-    const [employer, setEmployer] = useState('')
-    const [title, setTitle] = useState('')
+const Form = ({ cards, setCards, showForm, setShowForm, }) => {
 
-    const [movie1, setMovie1] = useState('')
-    const [movie2, setMovie2] = useState('')
-    const [movie3, setMovie3] = useState('')
+    const [firstName, setFirstName] = useState()
+    const [lastName, setLastName] = useState()
+    const [city, setCity] = useState()
+    const [country, setCountry] = useState()
+    const [employer, setEmployer] = useState()
+    const [title, setTitle] = useState()
+
+    const [movie1, setMovie1] = useState()
+    const [movie2, setMovie2] = useState()
+    const [movie3, setMovie3] = useState()
 
     //--------First/Last Name Input------------------------------
     const handleFirstName = (e) => {
@@ -61,14 +59,14 @@ const Form = ({ cards, setCards, showForm, setShowForm }) => {
         setShowForm(false)
     }
 
-
     //--------Form Submit Handler-----------------------------
     const handleSubmit = (e) => {
         e.preventDefault()
         hideForm()
+        let globalId = 25
         setCards([...cards, 
             {
-            id: 26,
+            id: globalId++,
             name: {first: firstName, last: lastName},
             city: city,
             country: country,
@@ -82,9 +80,10 @@ const Form = ({ cards, setCards, showForm, setShowForm }) => {
             }
         ])
     }
+    console.log(cards)
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={ handleSubmit }>
             <div>
                 <h1>Add Person</h1>
                 <label>First Name: </label>
